@@ -1,0 +1,156 @@
+﻿<Window x:Class="FaceApi_Verify.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FaceApi_Verify"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="Face Api - Face Verification" Height="600" Width="950">
+    <Grid>
+        <Image x:Name="imgFace1" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="0,0,0,0" Stretch="Uniform" Width="300"></Image>
+        <Image x:Name="imgFace2" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="320,0,0,0" Stretch="Uniform" Width="300"></Image>
+
+        <Grid x:Name="gridMain" VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="0,0,0,0" Width="300" Background="#EEEEEE">
+            <Label VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,20,0,0">Images (select two)</Label>
+            <ComboBox x:Name="cmbImages1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,45,0,0" Width="260" SelectionChanged="cmbImages1_SelectionChanged" >
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNTg1NzkxODIzMl5BMl5BanBnXkFtZTgwNDA1MTMzNTE@._V1_SY1000_CR0,0,666,1000_AL_.jpg">Chris Hemsworth - 01</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTUxNzc0MDU4Nl5BMl5BanBnXkFtZTgwOTM1NTU2NzE@._V1_SY500_CR0,0,362,500_AL_.jpg">Chris Hemsworth - 02</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTg5MzcxMDU1NF5BMl5BanBnXkFtZTgwMjQ5MzU2NzE@._V1_SY1000_CR0,0,666,1000_AL_.jpg">Chris Hemsworth - 03</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjMzNDEwNTc5Nl5BMl5BanBnXkFtZTgwOTEyMTQ0NTE@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Chris Hemsworth - 04</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTk3MDYyMzU4N15BMl5BanBnXkFtZTcwNDkxMjM4NA@@._V1_SY1000_CR0,0,740,1000_AL_.jpg">Chris Hemsworth - 05</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjYwMDYwMDAzMV5BMl5BanBnXkFtZTgwODU0NTQwNDE@._V1_SY1000_CR0,0,664,1000_AL_.jpg">Chris Hemsworth - 06</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNzU2OTk5ODI2MV5BMl5BanBnXkFtZTgwMDA4MjUwNDE@._V1_SY1000_CR0,0,759,1000_AL_.jpg">Chris Hemsworth - 07</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTgyOTg2NDMzNl5BMl5BanBnXkFtZTgwMTUxNzU5MzE@._V1_SY1000_CR0,0,712,1000_AL_.jpg">Chris Hemsworth - 08</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTcwNjk1ODMyMV5BMl5BanBnXkFtZTgwMDg1MDAzMjE@._V1_SY1000_CR0,0,737,1000_AL_.jpg">Chris Hemsworth - 09</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTMzODU4ODM0NV5BMl5BanBnXkFtZTcwMzcwNzY2Nw@@._V1_SY1000_CR0,0,719,1000_AL_.jpg">Chris Hemsworth - 10</ComboBoxItem>
+
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjY1OTg0OTU5Ml5BMl5BanBnXkFtZTgwNTY0MzYwOTE@._V1_SY1000_CR0,0,773,1000_AL_.jpg">Liam Hemsworth - 01</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjE3MzgxODEyMV5BMl5BanBnXkFtZTgwMDM0OTk3NjE@._V1_SY1000_CR0,0,702,1000_AL_.jpg">Liam Hemsworth - 02</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQ0MjcyMjkxMV5BMl5BanBnXkFtZTgwOTQxNTA0MzE@._V1_SY1000_CR0,0,696,1000_AL_.jpg">Liam Hemsworth - 03</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTc5NDE3NzgyN15BMl5BanBnXkFtZTgwOTMwMzE2MDE@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Liam Hemsworth - 04</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQ2MDc4MjAzMl5BMl5BanBnXkFtZTgwNDgxMTY1MDE@._V1_SY1000_CR0,0,741,1000_AL_.jpg">Liam Hemsworth - 05</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNDczMTYwNzAyNV5BMl5BanBnXkFtZTgwODA2MzcxMDE@._V1_SY1000_CR0,0,679,1000_AL_.jpg">Liam Hemsworth - 06</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQ2MDExNzc0NV5BMl5BanBnXkFtZTgwMzA3MzUwMDE@._V1_SY1000_CR0,0,1505,1000_AL_.jpg">Liam Hemsworth - 07</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjIwNTI2NDIyNl5BMl5BanBnXkFtZTcwMDM3NzM1OQ@@._V1_SY1000_CR0,0,1441,1000_AL_.jpg">Liam Hemsworth - 08</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTYwMDMxOTY5N15BMl5BanBnXkFtZTcwMDkyOTM1OQ@@._V1_SY1000_CR0,0,655,1000_AL_.jpg">Liam Hemsworth - 09</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjcwMDk5ODE5OV5BMl5BanBnXkFtZTcwMjQ3NDUwOA@@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Liam Hemsworth - 10</ComboBoxItem>
+
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjEyODAzOTg3NF5BMl5BanBnXkFtZTgwMTYxMjIzNDE@._V1_SY1000_CR0,0,664,1000_AL_.jpg">Mila Kunis - 01</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTk5OTY1NTg2NV5BMl5BanBnXkFtZTgwMTc0MjM5MTE@._V1_SY1000_CR0,0,1505,1000_AL_.jpg">Mila Kunis - 02</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjE0NTQ0Nzc0Nl5BMl5BanBnXkFtZTgwODM3NTU5MDE@._V1_SY1000_CR0,0,714,1000_AL_.jpg">Mila Kunis - 03</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMzQ5NjM3MTg3M15BMl5BanBnXkFtZTgwMzE2ODEyMDE@._V1_SY1000_CR0,0,1504,1000_AL_.jpg">Mila Kunis - 04</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjEyMjM2MjU2NV5BMl5BanBnXkFtZTgwODY3MzMyMDE@._V1_SY1000_CR0,0,725,1000_AL_.jpg">Mila Kunis - 05</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjI4MDkwMzM3N15BMl5BanBnXkFtZTcwOTI0OTExOA@@._V1_SY1000_CR0,0,1477,1000_AL_.jpg">Mila Kunis - 06</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMzczNzA3MzMyMF5BMl5BanBnXkFtZTcwNTEwMjAyNw@@._V1_SY1000_CR0,0,1509,1000_AL_.jpg">Mila Kunis - 07</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTk0NDE3ODIwMF5BMl5BanBnXkFtZTcwNjY3MTI1NQ@@._V1_SY1000_CR0,0,1502,1000_AL_.jpg">Mila Kunis - 08</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTM2NzgxMDczNF5BMl5BanBnXkFtZTcwMTc4ODQ2NA@@._V1_SY1000_CR0,0,777,1000_AL_.jpg">Mila Kunis - 09</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNjc5MDE0OTM0MV5BMl5BanBnXkFtZTcwMDQxODY1NA@@._V1_SY1000_CR0,0,1503,1000_AL_.jpg">Mila Kunis - 10</ComboBoxItem>
+
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjI0MzEzMDgyN15BMl5BanBnXkFtZTgwNzIyMjc3NjE@._V1_SY1000_CR0,0,694,1000_AL_.jpg">Natalie Portman - 01</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTU0ODQ0OTE0OF5BMl5BanBnXkFtZTgwMDI4NzI3NTE@._V1_SY1000_CR0,0,1482,1000_AL_.jpg">Natalie Portman - 02</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQyODk5MTA5Ml5BMl5BanBnXkFtZTgwNzYxNTg1NDE@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Natalie Portman - 03</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQ3MzM5MDIxMF5BMl5BanBnXkFtZTcwOTYwNjk3Nw@@._V1_SY1000_CR0,0,773,1000_AL_.jpg">Natalie Portman - 04</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNTczOTQ2MzY1M15BMl5BanBnXkFtZTcwMDQ4MjcyNw@@._V1_SY1000_CR0,0,703,1000_AL_.jpg">Natalie Portman - 05</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMzkxMTYwNDQ3OV5BMl5BanBnXkFtZTcwMjU1NjI4NA@@._V1_SY1000_CR0,0,721,1000_AL_.jpg">Natalie Portman - 06</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTY2NDQ1OTMyNV5BMl5BanBnXkFtZTcwNzU5MDc1NA@@._V1_SY1000_CR0,0,740,1000_AL_.jpg">Natalie Portman - 07</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjExMjc5Nzk2Nl5BMl5BanBnXkFtZTcwMTAzOTU1NA@@._V1_SY1000_CR0,0,721,1000_AL_.jpg">Natalie Portman - 08</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjczMTM5OTc2N15BMl5BanBnXkFtZTcwMTIwNTQzNA@@._V1_SY1000_CR0,0,1270,1000_AL_.jpg">Natalie Portman - 09</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTcwNjM4Mjc1OV5BMl5BanBnXkFtZTcwODIyODgxNw@@._V1_SY1000_CR0,0,854,1000_AL_.jpg">Natalie Portman - 10</ComboBoxItem>
+
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNzcwMTE4NDQ0NV5BMl5BanBnXkFtZTgwMzIxMDExOTE@._V1_SY1000_CR0,0,756,1000_AL_.jpg">Sarah Hyland - 01</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTUxOTM4ODI0M15BMl5BanBnXkFtZTgwOTE4MDg2NzE@._V1_SY1000_CR0,0,663,1000_AL_.jpg">Sarah Hyland - 02</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjI3Mjc0NDU1Ml5BMl5BanBnXkFtZTgwMTY2MzgwNzE@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Sarah Hyland - 03</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTY4OTQ2ODg5M15BMl5BanBnXkFtZTcwODc1MTIwOQ@@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Sarah Hyland - 04</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjMxMjY0NjA0NV5BMl5BanBnXkFtZTgwNzEwNjQ4NjE@._V1_SY1000_CR0,0,664,1000_AL_.jpg">Sarah Hyland - 05</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQ4NDI4ODU2N15BMl5BanBnXkFtZTgwMDE0NTg1NDE@._V1_SY1000_CR0,0,666,1000_AL_.jpg">Sarah Hyland - 06</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjMyMjU2ODQ2Ml5BMl5BanBnXkFtZTgwNTE1MTM1MjE@._V1_SY1000_CR0,0,664,1000_AL_.jpg">Sarah Hyland - 07</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjE2MDE5MjA4N15BMl5BanBnXkFtZTgwMDg3ODI1MjE@._V1_SY1000_CR0,0,666,1000_AL_.jpg">Sarah Hyland - 08</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTM5MTc0MzI1MV5BMl5BanBnXkFtZTgwMjQ0OTk5MDE@._V1_SY1000_CR0,0,681,1000_AL_.jpg">Sarah Hyland - 09</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQwMDYyNDE5OV5BMl5BanBnXkFtZTgwNzcxMzYyMDE@._V1_SY1000_CR0,0,1559,1000_AL_.jpg">Sarah Hyland - 10</ComboBoxItem>
+
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjAwNzg3Mzk1M15BMl5BanBnXkFtZTgwNTEzMzg2NzE@._V1_SX1500_CR0,0,1500,999_AL_.jpg">Tom Hanks - 01</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjExNzI5NTU4MV5BMl5BanBnXkFtZTgwMjM2NTY5NjE@._V1_SY1000_CR0,0,666,1000_AL_.jpg">Tom Hanks - 02</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjM0MDM3MTk2NF5BMl5BanBnXkFtZTgwMzQ4OTQ5NjE@._V1_SX1500_CR0,0,1500,999_AL_.jpg">Tom Hanks - 03</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTY1NTMzNDIzMl5BMl5BanBnXkFtZTgwMTIzOTUwMTE@._V1_SY1000_CR0,0,721,1000_AL_.jpg">Tom Hanks - 04</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjM2NTIyODkwNl5BMl5BanBnXkFtZTgwMTUzMzYzMDE@._V1_SY1000_CR0,0,1502,1000_AL_.jpg">Tom Hanks - 05</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNDI0NzA1MDEwOF5BMl5BanBnXkFtZTcwMzY3NjE1OA@@._V1_SY1000_CR0,0,664,1000_AL_.jpg">Tom Hanks - 06</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTM4MzM5MDc0Nl5BMl5BanBnXkFtZTcwOTI4OTcxNA@@._V1_SY1000_CR0,0,657,1000_AL_.jpg">Tom Hanks - 07</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjExODcxNDA1OV5BMl5BanBnXkFtZTcwMDE0ODMzMw@@._V1_SY1000_CR0,0,1501,1000_AL_.jpg">Tom Hanks - 08</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTUzODIyMzE1Ml5BMl5BanBnXkFtZTgwMjg4MTU0MDE@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Tom Hanks - 09</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTg5NzkyNTA4MV5BMl5BanBnXkFtZTcwNzA5NjkzNw@@._V1_SY1000_CR0,0,765,1000_AL_.jpg">Tom Hanks - 10</ComboBoxItem>
+            </ComboBox>
+
+            <ComboBox x:Name="cmbImages2" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,70,0,0" Width="260" SelectionChanged="cmbImages2_SelectionChanged" >
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNTg1NzkxODIzMl5BMl5BanBnXkFtZTgwNDA1MTMzNTE@._V1_SY1000_CR0,0,666,1000_AL_.jpg">Chris Hemsworth - 01</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTUxNzc0MDU4Nl5BMl5BanBnXkFtZTgwOTM1NTU2NzE@._V1_SY500_CR0,0,362,500_AL_.jpg">Chris Hemsworth - 02</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTg5MzcxMDU1NF5BMl5BanBnXkFtZTgwMjQ5MzU2NzE@._V1_SY1000_CR0,0,666,1000_AL_.jpg">Chris Hemsworth - 03</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjMzNDEwNTc5Nl5BMl5BanBnXkFtZTgwOTEyMTQ0NTE@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Chris Hemsworth - 04</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTk3MDYyMzU4N15BMl5BanBnXkFtZTcwNDkxMjM4NA@@._V1_SY1000_CR0,0,740,1000_AL_.jpg">Chris Hemsworth - 05</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjYwMDYwMDAzMV5BMl5BanBnXkFtZTgwODU0NTQwNDE@._V1_SY1000_CR0,0,664,1000_AL_.jpg">Chris Hemsworth - 06</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNzU2OTk5ODI2MV5BMl5BanBnXkFtZTgwMDA4MjUwNDE@._V1_SY1000_CR0,0,759,1000_AL_.jpg">Chris Hemsworth - 07</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTgyOTg2NDMzNl5BMl5BanBnXkFtZTgwMTUxNzU5MzE@._V1_SY1000_CR0,0,712,1000_AL_.jpg">Chris Hemsworth - 08</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTcwNjk1ODMyMV5BMl5BanBnXkFtZTgwMDg1MDAzMjE@._V1_SY1000_CR0,0,737,1000_AL_.jpg">Chris Hemsworth - 09</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTMzODU4ODM0NV5BMl5BanBnXkFtZTcwMzcwNzY2Nw@@._V1_SY1000_CR0,0,719,1000_AL_.jpg">Chris Hemsworth - 10</ComboBoxItem>
+
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjY1OTg0OTU5Ml5BMl5BanBnXkFtZTgwNTY0MzYwOTE@._V1_SY1000_CR0,0,773,1000_AL_.jpg">Liam Hemsworth - 01</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjE3MzgxODEyMV5BMl5BanBnXkFtZTgwMDM0OTk3NjE@._V1_SY1000_CR0,0,702,1000_AL_.jpg">Liam Hemsworth - 02</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQ0MjcyMjkxMV5BMl5BanBnXkFtZTgwOTQxNTA0MzE@._V1_SY1000_CR0,0,696,1000_AL_.jpg">Liam Hemsworth - 03</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTc5NDE3NzgyN15BMl5BanBnXkFtZTgwOTMwMzE2MDE@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Liam Hemsworth - 04</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQ2MDc4MjAzMl5BMl5BanBnXkFtZTgwNDgxMTY1MDE@._V1_SY1000_CR0,0,741,1000_AL_.jpg">Liam Hemsworth - 05</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNDczMTYwNzAyNV5BMl5BanBnXkFtZTgwODA2MzcxMDE@._V1_SY1000_CR0,0,679,1000_AL_.jpg">Liam Hemsworth - 06</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQ2MDExNzc0NV5BMl5BanBnXkFtZTgwMzA3MzUwMDE@._V1_SY1000_CR0,0,1505,1000_AL_.jpg">Liam Hemsworth - 07</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjIwNTI2NDIyNl5BMl5BanBnXkFtZTcwMDM3NzM1OQ@@._V1_SY1000_CR0,0,1441,1000_AL_.jpg">Liam Hemsworth - 08</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTYwMDMxOTY5N15BMl5BanBnXkFtZTcwMDkyOTM1OQ@@._V1_SY1000_CR0,0,655,1000_AL_.jpg">Liam Hemsworth - 09</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjcwMDk5ODE5OV5BMl5BanBnXkFtZTcwMjQ3NDUwOA@@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Liam Hemsworth - 10</ComboBoxItem>
+
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjEyODAzOTg3NF5BMl5BanBnXkFtZTgwMTYxMjIzNDE@._V1_SY1000_CR0,0,664,1000_AL_.jpg">Mila Kunis - 01</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTk5OTY1NTg2NV5BMl5BanBnXkFtZTgwMTc0MjM5MTE@._V1_SY1000_CR0,0,1505,1000_AL_.jpg">Mila Kunis - 02</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjE0NTQ0Nzc0Nl5BMl5BanBnXkFtZTgwODM3NTU5MDE@._V1_SY1000_CR0,0,714,1000_AL_.jpg">Mila Kunis - 03</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMzQ5NjM3MTg3M15BMl5BanBnXkFtZTgwMzE2ODEyMDE@._V1_SY1000_CR0,0,1504,1000_AL_.jpg">Mila Kunis - 04</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjEyMjM2MjU2NV5BMl5BanBnXkFtZTgwODY3MzMyMDE@._V1_SY1000_CR0,0,725,1000_AL_.jpg">Mila Kunis - 05</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjI4MDkwMzM3N15BMl5BanBnXkFtZTcwOTI0OTExOA@@._V1_SY1000_CR0,0,1477,1000_AL_.jpg">Mila Kunis - 06</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMzczNzA3MzMyMF5BMl5BanBnXkFtZTcwNTEwMjAyNw@@._V1_SY1000_CR0,0,1509,1000_AL_.jpg">Mila Kunis - 07</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTk0NDE3ODIwMF5BMl5BanBnXkFtZTcwNjY3MTI1NQ@@._V1_SY1000_CR0,0,1502,1000_AL_.jpg">Mila Kunis - 08</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTM2NzgxMDczNF5BMl5BanBnXkFtZTcwMTc4ODQ2NA@@._V1_SY1000_CR0,0,777,1000_AL_.jpg">Mila Kunis - 09</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNjc5MDE0OTM0MV5BMl5BanBnXkFtZTcwMDQxODY1NA@@._V1_SY1000_CR0,0,1503,1000_AL_.jpg">Mila Kunis - 10</ComboBoxItem>
+
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjI0MzEzMDgyN15BMl5BanBnXkFtZTgwNzIyMjc3NjE@._V1_SY1000_CR0,0,694,1000_AL_.jpg">Natalie Portman - 01</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTU0ODQ0OTE0OF5BMl5BanBnXkFtZTgwMDI4NzI3NTE@._V1_SY1000_CR0,0,1482,1000_AL_.jpg">Natalie Portman - 02</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQyODk5MTA5Ml5BMl5BanBnXkFtZTgwNzYxNTg1NDE@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Natalie Portman - 03</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQ3MzM5MDIxMF5BMl5BanBnXkFtZTcwOTYwNjk3Nw@@._V1_SY1000_CR0,0,773,1000_AL_.jpg">Natalie Portman - 04</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNTczOTQ2MzY1M15BMl5BanBnXkFtZTcwMDQ4MjcyNw@@._V1_SY1000_CR0,0,703,1000_AL_.jpg">Natalie Portman - 05</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMzkxMTYwNDQ3OV5BMl5BanBnXkFtZTcwMjU1NjI4NA@@._V1_SY1000_CR0,0,721,1000_AL_.jpg">Natalie Portman - 06</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTY2NDQ1OTMyNV5BMl5BanBnXkFtZTcwNzU5MDc1NA@@._V1_SY1000_CR0,0,740,1000_AL_.jpg">Natalie Portman - 07</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjExMjc5Nzk2Nl5BMl5BanBnXkFtZTcwMTAzOTU1NA@@._V1_SY1000_CR0,0,721,1000_AL_.jpg">Natalie Portman - 08</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjczMTM5OTc2N15BMl5BanBnXkFtZTcwMTIwNTQzNA@@._V1_SY1000_CR0,0,1270,1000_AL_.jpg">Natalie Portman - 09</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTcwNjM4Mjc1OV5BMl5BanBnXkFtZTcwODIyODgxNw@@._V1_SY1000_CR0,0,854,1000_AL_.jpg">Natalie Portman - 10</ComboBoxItem>
+
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNzcwMTE4NDQ0NV5BMl5BanBnXkFtZTgwMzIxMDExOTE@._V1_SY1000_CR0,0,756,1000_AL_.jpg">Sarah Hyland - 01</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTUxOTM4ODI0M15BMl5BanBnXkFtZTgwOTE4MDg2NzE@._V1_SY1000_CR0,0,663,1000_AL_.jpg">Sarah Hyland - 02</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjI3Mjc0NDU1Ml5BMl5BanBnXkFtZTgwMTY2MzgwNzE@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Sarah Hyland - 03</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTY4OTQ2ODg5M15BMl5BanBnXkFtZTcwODc1MTIwOQ@@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Sarah Hyland - 04</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjMxMjY0NjA0NV5BMl5BanBnXkFtZTgwNzEwNjQ4NjE@._V1_SY1000_CR0,0,664,1000_AL_.jpg">Sarah Hyland - 05</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQ4NDI4ODU2N15BMl5BanBnXkFtZTgwMDE0NTg1NDE@._V1_SY1000_CR0,0,666,1000_AL_.jpg">Sarah Hyland - 06</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjMyMjU2ODQ2Ml5BMl5BanBnXkFtZTgwNTE1MTM1MjE@._V1_SY1000_CR0,0,664,1000_AL_.jpg">Sarah Hyland - 07</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjE2MDE5MjA4N15BMl5BanBnXkFtZTgwMDg3ODI1MjE@._V1_SY1000_CR0,0,666,1000_AL_.jpg">Sarah Hyland - 08</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTM5MTc0MzI1MV5BMl5BanBnXkFtZTgwMjQ0OTk5MDE@._V1_SY1000_CR0,0,681,1000_AL_.jpg">Sarah Hyland - 09</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTQwMDYyNDE5OV5BMl5BanBnXkFtZTgwNzcxMzYyMDE@._V1_SY1000_CR0,0,1559,1000_AL_.jpg">Sarah Hyland - 10</ComboBoxItem>
+
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjAwNzg3Mzk1M15BMl5BanBnXkFtZTgwNTEzMzg2NzE@._V1_SX1500_CR0,0,1500,999_AL_.jpg">Tom Hanks - 01</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjExNzI5NTU4MV5BMl5BanBnXkFtZTgwMjM2NTY5NjE@._V1_SY1000_CR0,0,666,1000_AL_.jpg">Tom Hanks - 02</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjM0MDM3MTk2NF5BMl5BanBnXkFtZTgwMzQ4OTQ5NjE@._V1_SX1500_CR0,0,1500,999_AL_.jpg">Tom Hanks - 03</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTY1NTMzNDIzMl5BMl5BanBnXkFtZTgwMTIzOTUwMTE@._V1_SY1000_CR0,0,721,1000_AL_.jpg">Tom Hanks - 04</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjM2NTIyODkwNl5BMl5BanBnXkFtZTgwMTUzMzYzMDE@._V1_SY1000_CR0,0,1502,1000_AL_.jpg">Tom Hanks - 05</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BNDI0NzA1MDEwOF5BMl5BanBnXkFtZTcwMzY3NjE1OA@@._V1_SY1000_CR0,0,664,1000_AL_.jpg">Tom Hanks - 06</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTM4MzM5MDc0Nl5BMl5BanBnXkFtZTcwOTI4OTcxNA@@._V1_SY1000_CR0,0,657,1000_AL_.jpg">Tom Hanks - 07</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMjExODcxNDA1OV5BMl5BanBnXkFtZTcwMDE0ODMzMw@@._V1_SY1000_CR0,0,1501,1000_AL_.jpg">Tom Hanks - 08</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTUzODIyMzE1Ml5BMl5BanBnXkFtZTgwMjg4MTU0MDE@._V1_SY1000_CR0,0,665,1000_AL_.jpg">Tom Hanks - 09</ComboBoxItem>
+                <ComboBoxItem Tag="http://ia.media-imdb.com/images/M/MV5BMTg5NzkyNTA4MV5BMl5BanBnXkFtZTcwNzA5NjkzNw@@._V1_SY1000_CR0,0,765,1000_AL_.jpg">Tom Hanks - 10</ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="btnFacialVerification" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,95,0,0" Width="160" Content="Verify Faces" Click="btnFacialVerification_Click" ></Button>
+            <TextBox x:Name="txtInfo" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,125,0,0" Width="260" Height="375" TextWrapping="WrapWithOverflow" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" ></TextBox>
+        </Grid>
+
+    </Grid>
+</Window>
